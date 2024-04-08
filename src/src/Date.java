@@ -25,7 +25,9 @@ public class Date {
                 this.day = newDay();
             }
         } else{
+            if(year % 4 != 0 ){
 
+            }
         }
 
     }
