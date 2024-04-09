@@ -9,7 +9,8 @@ public class Date {
         Date date = new Date(9, 4, 2004);
         date.report();
         date.nextDay();
-        int age = -1;
+        int age = 0;
+        //as of 4/9/24 this gets you from my birth to today, and tells me happy birthday every time
         for(int i = 0; i < 7156; i++){
             date.nextDay();
             if(date.getDay() == 4 && date.getMonth() == 9){
@@ -17,7 +18,7 @@ public class Date {
                 System.out.println("Happy birthday, you are " + age);
             }
         }
-
+        date.report();
     }
 
     //constructor checks if the date is valid
@@ -47,7 +48,7 @@ public class Date {
                 this.day = newDay(true, 0);
             }
         } else{
-            if(year % 100 == 0 && year % 400 != 400){
+            if(year % 100 == 0 && year % 400 != 0){
                 if(day > 0 && day <= 28){
                     this.day = day;
                 } else{
@@ -89,11 +90,12 @@ public class Date {
             }else if(year % 4 != 0){
                 if(day == 28){
                     day = 1;
+                    month ++;
                 } else{
                     day ++;
                 }
             } else{
-                if(year % 100 == 0 && year % 400 != 400){
+                if(year % 100 == 0 && year % 400 != 0){
                     if(day == 28){
                         day = 1;
                         month ++;
@@ -114,6 +116,8 @@ public class Date {
                 year ++;
                 month = 1;
                 day = 1;
+            } else{
+                day ++;
             }
         }
     }
@@ -169,7 +173,7 @@ public class Date {
                 return newDay(true, 0);
             }
         } else{
-            if(year % 100 == 0 && year % 400 != 400){
+            if(year % 100 == 0 && year % 400 != 0){
                 if(day > 0 && day <= 28){
                     return day;
                 } else{
