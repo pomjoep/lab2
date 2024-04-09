@@ -5,8 +5,23 @@ public class Date {
     private int month;
     private int day;
 
+    public static void main(String[]args){
+        Date date = new Date(9, 4, 2004);
+        date.report();
+        date.nextDay();
+        int age = -1;
+        for(int i = 0; i < 7156; i++){
+            date.nextDay();
+            if(date.getDay() == 4 && date.getMonth() == 9){
+                age ++;
+                System.out.println("Happy birthday, you are " + age);
+            }
+        }
+
+    }
+
     //constructor checks if the date is valid
-    public Date(int year, int month, int day){
+    public Date(int month, int day, int year){
         this.year = year;
         if(month > 0 && month <= 12){
             this.month = month;
@@ -47,6 +62,11 @@ public class Date {
             }
         }
 
+    }
+    public void setDate(int month, int day, int year){
+        this.year = year;
+        newDay(false, day);
+        newMonth(false, month);
     }
 
     //updates date + one day
@@ -101,6 +121,9 @@ public class Date {
     @Override
     public String toString(){
         return month + "/" + day + "/" + year;
+    }
+    public void report(){
+        System.out.println(month + "/" + day + "/" + year);
     }
 
     //day & month checkers
