@@ -1,7 +1,7 @@
 public class Point2D {
     private int x;
     private int y;
-    //private means they cannot be changed or accessed directly
+    //private means they cannot be changed or accessed directly,
     //however within the class they can be changed
     //they also do need an object made to exist
 
